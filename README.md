@@ -35,6 +35,34 @@ You can also add any global constant variables you'd like to be accessible anywh
 
 **Step 4:** Customize the handlers (the actions for your bot to execute) in the `handlers` directory. The different actions can be organized into the appropriate folders (see [handlers](#2-handlers) below for more details)
 
+**Step 5:** Register your handlers in the bot.py file.
+```python
+# bot.py
+import logging
+
+from telegram.ext import Updater, Dispatcher
+
+from config import TOKEN
+from handlers.commands import start, get_chat_id  # Example handlers
+
+
+def main() -> None:
+    updater = Updater(TOKEN)
+    dispatcher: Dispatcher = updater.dispatcher
+
+    # Add your handlers here.
+    dispatcher.add_handler(start)
+    dispatcher.add_handler(get_chat_id)
+
+    # Start bot
+    updater.start_polling()
+    updater.idle()  # Allow Ctrl + c to stop the bot.
+```
+
+**Step 6:** Start your bot.
+```md
+python bot.py
+```
 
 ## How it's organized:
 

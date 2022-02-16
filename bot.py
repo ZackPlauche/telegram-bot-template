@@ -1,6 +1,6 @@
 import logging
 
-from telegram.ext import Updater, Dispatcher, ExtBot
+from telegram.ext import Updater, Dispatcher
 
 from config import TOKEN
 from handlers.commands import start, caps, supportme, get_chat_id
@@ -13,6 +13,7 @@ def main() -> None:
     updater = Updater(TOKEN)
     dispatcher: Dispatcher = updater.dispatcher
 
+    # Add your handlers here.
     dispatcher.add_handler(start)
     dispatcher.add_handler(caps)
     dispatcher.add_handler(get_chat_id)
