@@ -1,4 +1,53 @@
 # Telegram Bot Tempalte
 ![Random gif I found of a bot assembly plant](https://texterra.ru/upload/img/22-10-2019/bot.gif)
 
-An easy to start quick template for building telegram bots in Python.
+An easy to use quick start template for building telegram bots in Python.
+
+## Requirements
+- You'll need to have created a bot from the Bot Father in telegram to get the bot's auth token.
+
+## How to use
+
+**Step 1:** Clone the repo into your own directory
+
+Using Git:
+```cmd
+git clone https://www.github.com/ZackPlauche/telegram-bot-template
+```
+Using GitHub CLI:
+```cmd
+gh repo clone ZackPlauche/telegram-bot-template
+```
+
+**Step 2:** Delete the `.git` folder and reset the contents of the  `README.md` file that come with the template to treat it as your own project and upload the bot to your own repo.
+
+**Step 3:** Fill in the `TOKEN` setting inside the `conf/settings.py` file with your your bot's auth token.
+```py
+TOKEN = ''  # <- Fill this one in
+
+GROUP_CHAT_IDS = []  
+```
+ This is a global setting that you can use in any of your other files like so:
+```py
+from config import TOKEN
+```
+You can also add any global constant variables you'd like to be accessible anywhere in your app to this file, and your can import them the same way.
+
+**Step 4:** Customize the handlers (the actions for your bot to execute) in the `handlers` directory. The different actions can be organized into the appropriate folders (see [handlers](#2-handlers) below for more details)
+
+
+## How it's organized:
+
+There are 3 main parts to this template:
+## 1. Config
+This is where you'll store your global settings (for example, the TOKEN for your bot) are stored in the default settings.py or a locals.py file in the same directory.
+
+## 2. Handlers
+Stored in `./handlers/`
+This is where you'll store the actions and commands for your bot to follow. There is a separate folder for each type of handler, for example:
+- **Command Handlers**: Stored in `handlers/commands.py`Handlers that run whenever your run a slash command (ex: `/help`)
+- **Message handlers**: Handlers that react for certain types of messages (like `echo` that says repeats whatever a user says.)
+- *Inline Queries*: Handlers for inilne commands where you @ your bot's name and choose an action from there.
+3. **bot.py**: This is the file where your bot actually begins. Here you can store commands for when your bot starts, and more.
+
+Every 

@@ -3,6 +3,7 @@ from telegram.ext import CallbackContext
 
 from handlers.decorators import inline
 
+
 @inline
 def inline_caps(update: Update, context: CallbackContext):
     query: str = update.inline_query.query

@@ -1,22 +1,21 @@
 import logging
 
-from telegram import Bot
-from telegram.ext import Updater, Dispatcher
+from telegram.ext import Updater, Dispatcher, ExtBot
 
-from config import TELEGRAM_BOT_AUTH_TOKEN
-from handlers.commands import start, caps, chat_id, supportme
+from config import TOKEN
+from handlers.commands import start, caps, supportme, get_chat_id
 from handlers.messages import unknown
 from handlers.inlines import inline_caps
 
 
 
 def main() -> None:
-    updater = Updater(TELEGRAM_BOT_AUTH_TOKEN)
+    updater = Updater(TOKEN)
     dispatcher: Dispatcher = updater.dispatcher
 
     dispatcher.add_handler(start)
     dispatcher.add_handler(caps)
-    dispatcher.add_handler(chat_id)
+    dispatcher.add_handler(get_chat_id)
     dispatcher.add_handler(supportme)
     dispatcher.add_handler(inline_caps)
     dispatcher.add_handler(unknown)

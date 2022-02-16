@@ -13,7 +13,7 @@ def start(update: Update, context: CallbackContext):
 
 
 @command
-def chat_id(update: Update, context: CallbackContext):
+def get_chat_id(update: Update, context: CallbackContext):
     """Returns the chat id of the current chat. Super useful."""
 
     context.bot.send_message(chat_id=update.effective_chat.id, text=f'{update.effective_chat.id}')
