@@ -6,6 +6,16 @@ An easy to use quick start template for building telegram bots in Python.
 ## Requirements
 - You'll need to have created a bot from the Bot Father in telegram to get the bot's auth token.
 
+
+## Quickstart
+
+1. Clone the repo: `git clone https://www.github.com/zackplauche/telegram-bot-template`
+2. pip install the requirements into your project: `pip install -r requirements.txt`
+3. Add your Telegram bot auth token to the `config/settings.py` or to a `config/locals.py` if you'd like.
+4. Run the bot with the default commands: `bot.py`
+
+Then customize. For more in depth setup, see below.
+
 ## How to use
 
 **Step 1:** Clone the repo into your own directory
@@ -21,7 +31,9 @@ gh repo clone ZackPlauche/telegram-bot-template
 
 **Step 2:** Delete the `.git` folder and reset the contents of the  `README.md` file that come with the template to treat it as your own project and upload the bot to your own repo.
 
-**Step 3:** Fill in the `TOKEN` setting inside the `conf/settings.py` file with your your bot's auth token.
+**Step 3:** Pip install the requirements to your python environment: `pip install -r requirements.txt`
+
+**Step 4:** Fill in the `TOKEN` setting inside the `conf/settings.py` file with your your bot's auth token.
 ```py
 TOKEN = ''  # <- Fill this one in
 
@@ -33,9 +45,9 @@ from config import TOKEN
 ```
 You can also add any global constant variables you'd like to be accessible anywhere in your app to this file, and your can import them the same way.
 
-**Step 4:** Customize the handlers (the actions for your bot to execute) in the `handlers` directory. The different actions can be organized into the appropriate folders (see [handlers](#2-handlers) below for more details)
+**Step 5:** Customize the handlers (the actions for your bot to execute) in the `handlers` directory. The different actions can be organized into the appropriate folders (see [handlers](#2-handlers) below for more details). Also be sure to try out the `handlers/decorators.py` file to see syntactic sugar versions of the `telegram-bot` packages different handlers.
 
-**Step 5:** Register your handlers in the bot.py file.
+**Step 6:** Register your handlers in the bot.py file.
 ```python
 # bot.py
 import logging
@@ -59,7 +71,7 @@ def main() -> None:
     updater.idle()  # Allow Ctrl + c to stop the bot.
 ```
 
-**Step 6:** Start your bot.
+**Step 7:** Start your bot.
 ```md
 python bot.py
 ```
