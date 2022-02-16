@@ -39,15 +39,36 @@ You can also add any global constant variables you'd like to be accessible anywh
 ## How it's organized:
 
 There are 3 main parts to this template:
-## 1. Config
+### 1. Config
 This is where you'll store your global settings (for example, the TOKEN for your bot) are stored in the default settings.py or a locals.py file in the same directory.
 
-## 2. Handlers
+### 2. Handlers
 Stored in `./handlers/`
 This is where you'll store the actions and commands for your bot to follow. There is a separate folder for each type of handler, for example:
 - **Command Handlers**: Stored in `handlers/commands.py`Handlers that run whenever your run a slash command (ex: `/help`)
 - **Message handlers**: Handlers that react for certain types of messages (like `echo` that says repeats whatever a user says.)
-- *Inline Queries*: Handlers for inilne commands where you @ your bot's name and choose an action from there.
-3. **bot.py**: This is the file where your bot actually begins. Here you can store commands for when your bot starts, and more.
+- **Inline Queries**: Handlers for inilne commands where you @ your bot's name and choose an action from there.
 
-Every 
+### 3. bot.py 
+This is the file where your bot actually runs from. This is where you'll register your handlers.
+
+## God Mode
+While your bot is running, or not, you can send commands directly from your command line / terminal **OR** your python interpretor to do things like send messages from your bot.
+
+
+Send a message to every chat in the `GROUP_CHAT_IDS`
+```cmd
+python god.py send "Your message here"
+```
+
+Send a message to a single chat by providing the `chat_id` or an index of a chat in the `GROUP_CHAT_IDS`.
+
+With `chat_id`:
+```
+ python god.py send "Your message here" -123456789
+```
+
+With `GROUP_CHAT_ID` index:
+```
+ python god.py send "Your message here" 0
+```
