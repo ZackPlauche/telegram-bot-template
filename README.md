@@ -104,11 +104,11 @@ python god.py send "Your message here"
 Send a message to a single chat by providing the `chat_id` or an index of a chat in the `GROUP_CHAT_IDS`.
 
 With `chat_id`:
-```
+```cmd
  python god.py send "Your message here" -123456789
 ```
 
 With `GROUP_CHAT_ID` index:
-```
+```cmd
  python god.py send "Your message here" 0
 ```
